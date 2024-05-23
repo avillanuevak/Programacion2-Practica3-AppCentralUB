@@ -13,7 +13,6 @@ import java.io.ObjectOutputStream;
 import prog2.model.Dades;
 import java.io.Serializable;
 import prog2.vista.CentralUBException;
-import prog2.model.*;
 /**
     [La classe Adaptador és el mediador entre la vista i el model.
  * Concretament, conecta la classe Dades del model i la classe CentralUB de la vista.

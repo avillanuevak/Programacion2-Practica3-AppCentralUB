@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package prog2.vista;
+import prog2.adaptador.Adaptador;
 
 /**
  *
@@ -10,11 +11,18 @@ package prog2.vista;
  */
 public class AppCentralUB extends javax.swing.JFrame {
 
+    private Adaptador adaptador;
     /**
      * Creates new form AppCentralUB
      */
     public AppCentralUB() {
-        initComponents();
+        /* Crea un nou adaptador i inicialitza els components */
+        try {
+            this.adaptador = new Adaptador();
+            initComponents();
+        } catch (CentralUBException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     /**
@@ -26,21 +34,49 @@ public class AppCentralUB extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGestioComponents = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnGestioComponents.setText("Gestio Components");
+        btnGestioComponents.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestioComponentsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(btnGestioComponents, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(210, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(btnGestioComponents)
+                .addContainerGap(208, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGestioComponentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestioComponentsActionPerformed
+        // TODO add your handling code here:
+        
+        // Amagar el JFrame actual (Menu)
+        setVisible(false);
+        
+        /* Crear nova finestra de gestio de components amb el mateix adaptador */
+        FrameGestioComponents frameGestioComponents = new FrameGestioComponents(adaptador);
+        
+        /* Fer visible la nova finestra */
+        frameGestioComponents.setVisible(true);
+    }//GEN-LAST:event_btnGestioComponentsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +114,6 @@ public class AppCentralUB extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGestioComponents;
     // End of variables declaration//GEN-END:variables
 }
