@@ -89,6 +89,7 @@ public class BombaRefrigerant implements InBombaRefrigerant, Serializable{
     public void revisa (PaginaIncidencies p){
         if(variableUniforme.seguentValor() < 20){
             desactiva();
+            foraDeServei = true;
             p.afegeixIncidencia("Bomba refrigerant. ID: " + getId() + ", Activada: " + getActivat() + ", En servei: " + getForaDeServei());
         }
     }

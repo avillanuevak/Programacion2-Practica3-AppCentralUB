@@ -689,7 +689,7 @@ public class AppCentralUB extends javax.swing.JFrame {
 
     private void btnCancelarModificacionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarModificacionsActionPerformed
        try{
-        adaptador.getBarres();
+        adaptador.insertarBarres(copiaBarrasControl);
         if(copiaReactor){
             adaptador.activarReactor();
         }else{
