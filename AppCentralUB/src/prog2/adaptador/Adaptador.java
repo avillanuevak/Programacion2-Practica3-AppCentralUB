@@ -12,6 +12,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import prog2.model.Dades;
 import java.io.Serializable;
+import java.util.ArrayList;
 import prog2.vista.CentralUBException;
 /**
     [La classe Adaptador és el mediador entre la vista i el model.
@@ -34,11 +35,35 @@ public class Adaptador implements Serializable{
         dades = new Dades();
     }
     
+    /**
+     *
+     * @return
+     * @throws CentralUBException
+     */
+    public boolean isReactorActivat() throws CentralUBException{
+        return dades.isReactorActivat();
+    }
+    
+    
+    
+    /**
+     *
+     * @return
+     * @throws CentralUBException
+     */
     public float getGuanysAcumulats() throws CentralUBException{
         return dades.getGuanysAcumulats();
     }
     
     
+    /**
+     *
+     * @return
+     * @throws CentralUBException
+     */
+    public ArrayList<String> getBombesIncidencies() throws CentralUBException{
+        return dades.getBombesIncidencies();
+    }
     /**
      *
      * @return

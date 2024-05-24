@@ -6,6 +6,7 @@ package prog2.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import prog2.vista.CentralUBException;
 
@@ -91,7 +92,26 @@ public class Dades implements InDades, Serializable{
     public int getDia() {
         return dia;
     }
+
+    /**
+     *
+     * @return
+     */
+    public ArrayList<String> getBombesIncidencies(){
+        ArrayList<String> lista = new ArrayList<>();
+        for(BombaRefrigerant bomba : sistemaRefrigeracio.getSistemaRefrigeracio()){
+            if(bomba.getForaDeServei()){
+                lista.add(bomba.toString());
+            }
+        }
+        return lista;
+    }
+
     
+    /**
+     *
+     * @return
+     */
     public float getGuanysAcumulats(){
         return guanysAcumulats;
     }
@@ -229,6 +249,13 @@ public class Dades implements InDades, Serializable{
         reactor.desactiva();
     }
     
+    /**
+     *
+     * @return
+     */
+    public boolean isReactorActivat(){
+        return reactor.isActivat();
+    }
     /**
      * Retorna l'objecte que contè el reactor de la central.
      * @return 
