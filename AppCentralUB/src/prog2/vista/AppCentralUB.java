@@ -381,47 +381,45 @@ public class AppCentralUB extends javax.swing.JFrame {
         FrmGestioComponentsCentralLayout.setVerticalGroup(
             FrmGestioComponentsCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FrmGestioComponentsCentralLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(59, 59, 59)
                 .addGroup(FrmGestioComponentsCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FrmGestioComponentsCentralLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addGroup(FrmGestioComponentsCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(lblReactor2)
+                            .addComponent(txtfieldReactorActivat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(FrmGestioComponentsCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtIntroduirInsercioBarresControl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnIntroduirInsercioBarresControl))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sldBarresControl, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                        .addComponent(sldBarresControl, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(62, 62, 62))
                     .addGroup(FrmGestioComponentsCentralLayout.createSequentialGroup()
-                        .addGroup(FrmGestioComponentsCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblReactor2)
-                            .addComponent(txtfieldReactorActivat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblBombesRefrigerants2)
                         .addGap(18, 18, 18)
                         .addGroup(FrmGestioComponentsCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnActivarReactor)
                             .addComponent(btnDesactivarReactor))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                         .addComponent(btnAplicarModificacions)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnCancelarModificacions)
-                        .addGap(36, 36, 36))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FrmGestioComponentsCentralLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(FrmGestioComponentsCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FrmGestioComponentsCentralLayout.createSequentialGroup()
-                                .addComponent(lblForaDeServei2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(FrmGestioComponentsCentralLayout.createSequentialGroup()
-                                .addComponent(cmboxBombesRefrigerants, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(FrmGestioComponentsCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnActivarBomba)
-                                    .addComponent(btnDesactivarBomba))))
-                        .addContainerGap(119, Short.MAX_VALUE))
+                        .addGap(36, 36, 36))))
+            .addGroup(FrmGestioComponentsCentralLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addGroup(FrmGestioComponentsCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FrmGestioComponentsCentralLayout.createSequentialGroup()
-                        .addComponent(lblBombesRefrigerants2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(lblForaDeServei2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FrmGestioComponentsCentralLayout.createSequentialGroup()
+                        .addComponent(cmboxBombesRefrigerants, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(FrmGestioComponentsCentralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnActivarBomba)
+                            .addComponent(btnDesactivarBomba))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnCarregarFitxer.setText("Carregar Dades");
@@ -526,23 +524,21 @@ public class AppCentralUB extends javax.swing.JFrame {
                     .addComponent(txtGuanysAcumulats, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(btnGuardarDades)
-                        .addGap(42, 42, 42)
-                        .addComponent(btnCarregarDades))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(btnVisualitzarInformacioCentral)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnGestioComponentsCentral)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnFinalitzarDia)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(170, 170, 170)
+                            .addComponent(btnGuardarDades)
+                            .addGap(42, 42, 42)
+                            .addComponent(btnCarregarDades))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addComponent(btnVisualitzarInformacioCentral)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnGestioComponentsCentral)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnFinalitzarDia))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -674,7 +670,7 @@ public class AppCentralUB extends javax.swing.JFrame {
             setVisible(false);
             FrmGestioComponentsCentral.setVisible(true);
             FrmGestioComponentsCentral.setSize(800, 600);
-            omplirLlista();
+            llistaForadeServei();
             copiaBarrasControl = adaptador.getBarres();
             copiaReactor = adaptador.isReactorActivat();
             bomba1 = adaptador.isBombaActivat(0);
@@ -794,7 +790,11 @@ public class AppCentralUB extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDesactivarBombaActionPerformed
 
     private void btnAplicarModificacionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarModificacionsActionPerformed
-
+        try {
+            adaptador.insertarBarres(Float.valueOf(txtIntroduirInsercioBarresControl.getText()));
+        } catch (CentralUBException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
         setVisible(true);
         FrmGestioComponentsCentral.setVisible(false);
     }//GEN-LAST:event_btnAplicarModificacionsActionPerformed
@@ -808,11 +808,21 @@ public class AppCentralUB extends javax.swing.JFrame {
         setVisible(true);
     }//GEN-LAST:event_FrmGestioComponentsCentralComponentHidden
         
-    void omplirLlista(){
+    void llistaForadeServei(){
         DefaultListModel model = new DefaultListModel();
+        model.clear();
         try {
-            for(String item: adaptador.getBombesIncidencies()){
-                model.addElement(item);
+            if(adaptador.getForadeServei(0)){
+                model.addElement("Bomba1");
+            }
+            if(adaptador.getForadeServei(1)){
+                model.addElement("Bomba2");
+            }
+            if(adaptador.getForadeServei(2)){
+                model.addElement("Bomba3");
+            }
+            if(adaptador.getForadeServei(3)){
+                model.addElement("Bomba4");
             }
         } catch (CentralUBException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());

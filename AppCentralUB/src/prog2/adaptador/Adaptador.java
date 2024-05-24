@@ -57,6 +57,9 @@ public class Adaptador implements Serializable{
         }
     }
     
+    public boolean getForadeServei(int index) throws CentralUBException{
+        return dades.mostraSistemaRefrigeracio().getBomba(index).getForaDeServei();
+    }
     /**
      *
      * @return
