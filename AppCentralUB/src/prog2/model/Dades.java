@@ -83,6 +83,18 @@ public class Dades implements InDades, Serializable{
         this.sistemaRefrigeracio.afegirBomba(b2);
         this.sistemaRefrigeracio.afegirBomba(b3);
     }
+
+    /**
+     *
+     * @return
+     */
+    public int getDia() {
+        return dia;
+    }
+    
+    public float getGuanysAcumulats(){
+        return guanysAcumulats;
+    }
     
     /**
      * Actualitza l'economia de la central. Genera una pàgina econòmica a 

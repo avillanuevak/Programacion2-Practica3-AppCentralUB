@@ -34,7 +34,19 @@ public class Adaptador implements Serializable{
         dades = new Dades();
     }
     
+    public float getGuanysAcumulats() throws CentralUBException{
+        return dades.getGuanysAcumulats();
+    }
     
+    
+    /**
+     *
+     * @return
+     * @throws CentralUBException
+     */
+    public int getDia() throws CentralUBException{
+        return dades.getDia();
+    }
     /**
      * Mètodes de suport per connectar dades amb adaptador
      * @param b
