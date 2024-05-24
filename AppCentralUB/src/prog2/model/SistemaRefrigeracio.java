@@ -152,6 +152,10 @@ public class SistemaRefrigeracio implements InComponent, Serializable{
         return bombesActives;
     }
     
+    public BombaRefrigerant getBomba(int index){
+        return sistemaRefrigeracio.get(index);
+    }
+    
     /**
      *
      * @return

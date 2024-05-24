@@ -45,6 +45,17 @@ public class Adaptador implements Serializable{
     }
     
     
+    public boolean isBombaActivat(int index) throws CentralUBException{
+        return dades.mostraSistemaRefrigeracio().getBomba(index).getActivat();
+    }
+    
+    public void setEstatBomba(boolean estado, int index) throws CentralUBException{
+        if(estado){
+            dades.mostraSistemaRefrigeracio().getBomba(index).activa();
+        }else {
+            dades.mostraSistemaRefrigeracio().getBomba(index).desactiva();
+        }
+    }
     
     /**
      *
@@ -54,7 +65,6 @@ public class Adaptador implements Serializable{
     public float getGuanysAcumulats() throws CentralUBException{
         return dades.getGuanysAcumulats();
     }
-    
     
     /**
      *

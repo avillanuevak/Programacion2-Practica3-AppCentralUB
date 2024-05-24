@@ -31,7 +31,8 @@ public class AppCentralUB extends javax.swing.JFrame {
     private float demandaPotencia;
     private float copiaBarrasControl;
     private boolean copiaReactor;
-    private ArrayList<String> copiaBombas;
+    private boolean bomba1, bomba2, bomba3, bomba4;
+    
     
     public final static float DEMANDA_MAX = 1600;
     public final static float DEMANDA_MIN = 200;
@@ -487,7 +488,7 @@ public class AppCentralUB extends javax.swing.JFrame {
             }
         });
 
-        labelCentralUB.setText("CENTRALUB");
+        labelCentralUB.setText("CENTRAL UB");
 
         btnGestioComponentsCentral.setText("Gestio Components Central");
         btnGestioComponentsCentral.addActionListener(new java.awt.event.ActionListener() {
@@ -512,8 +513,8 @@ public class AppCentralUB extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(56, Short.MAX_VALUE)
-                .addComponent(labelCentralUB, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74)
+                .addComponent(labelCentralUB, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -527,13 +528,10 @@ public class AppCentralUB extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnGuardarDades)
-                                .addGap(42, 42, 42)
-                                .addComponent(btnCarregarDades))))
+                        .addGap(170, 170, 170)
+                        .addComponent(btnGuardarDades)
+                        .addGap(42, 42, 42)
+                        .addComponent(btnCarregarDades))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(btnVisualitzarInformacioCentral)
@@ -541,6 +539,10 @@ public class AppCentralUB extends javax.swing.JFrame {
                         .addComponent(btnGestioComponentsCentral)
                         .addGap(18, 18, 18)
                         .addComponent(btnFinalitzarDia)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -675,7 +677,10 @@ public class AppCentralUB extends javax.swing.JFrame {
             omplirLlista();
             copiaBarrasControl = adaptador.getBarres();
             copiaReactor = adaptador.isReactorActivat();
-
+            bomba1 = adaptador.isBombaActivat(0);
+            bomba2 = adaptador.isBombaActivat(1);
+            bomba3 = adaptador.isBombaActivat(2);
+            bomba4 = adaptador.isBombaActivat(3);
         } catch (CentralUBException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
@@ -693,6 +698,18 @@ public class AppCentralUB extends javax.swing.JFrame {
             adaptador.activarReactor();
         }else{
             adaptador.desactivarReactor();
+        }
+        if(adaptador.isBombaActivat(0) != bomba1){
+            adaptador.setEstatBomba(bomba1, 0);
+        }
+        if(adaptador.isBombaActivat(1) != bomba2){
+            adaptador.setEstatBomba(bomba2, 1);
+        }
+        if(adaptador.isBombaActivat(2) != bomba3){
+            adaptador.setEstatBomba(bomba3, 2);
+        }
+        if(adaptador.isBombaActivat(3) != bomba4){
+            adaptador.setEstatBomba(bomba4, 3);
         }
        }catch(CentralUBException ex){
             JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -761,6 +778,7 @@ public class AppCentralUB extends javax.swing.JFrame {
     private void btnActivarBombaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActivarBombaActionPerformed
         try {
             adaptador.activarBomba(cmboxBombesRefrigerants.getSelectedIndex());
+          
         } catch (CentralUBException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
