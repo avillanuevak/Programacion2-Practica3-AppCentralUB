@@ -291,6 +291,12 @@ public class AppCentralUB extends javax.swing.JFrame {
 
         jLabel3.setText("Inserció Barres de control");
 
+        listForaDeServei.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "hola", "aa" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        listForaDeServei.setToolTipText("");
         jScrollPane5.setViewportView(listForaDeServei);
 
         txtIntroduirInsercioBarresControl.addActionListener(new java.awt.event.ActionListener() {
@@ -795,6 +801,12 @@ public class AppCentralUB extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDesactivarBombaActionPerformed
 
     private void btnAplicarModificacionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarModificacionsActionPerformed
+        if(txtIntroduirInsercioBarresControl.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Introdueix valor a les barres de control");
+        }
+        if(txtfieldReactorActivat.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Falta l'estat del reactor");
+        }
         try {
             adaptador.insertarBarres(Float.valueOf(txtIntroduirInsercioBarresControl.getText()));
         } catch (CentralUBException ex) {
