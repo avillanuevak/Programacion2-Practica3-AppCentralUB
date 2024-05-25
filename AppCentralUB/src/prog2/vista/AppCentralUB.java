@@ -768,6 +768,11 @@ public class AppCentralUB extends javax.swing.JFrame {
         if (resultat == JFileChooser.APPROVE_OPTION) {
            fitxer=seleccio.getSelectedFile();
            txtCarregarFitxer.setText(fitxer.toString());
+                    try {
+                        adaptador.carregaDades(fitxer.toString());
+                    } catch (CentralUBException ex) {
+                        JOptionPane.showMessageDialog(null, ex.getMessage());
+                    }
     }
     }//GEN-LAST:event_btnCarregarFitxerActionPerformed
 
