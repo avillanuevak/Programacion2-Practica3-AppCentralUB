@@ -42,6 +42,7 @@ public class BombaRefrigerant implements InBombaRefrigerant, Serializable{
     }
     
     
+    
     /**
      * Activa la bomba refrigerant.El mètode llançarà una excepció si la bomba 
         està fora de servei i en aquest cas la bomba no es podrà activar.
@@ -68,6 +69,9 @@ public class BombaRefrigerant implements InBombaRefrigerant, Serializable{
         if(activada) this.activada = false;
     }
     
+    public void setForaDeServeiTrue(){
+        this.foraDeServei = true;
+    }
     /**
      * Retorna true si la bomba refrigerant està activada.
      * @return 
@@ -89,8 +93,8 @@ public class BombaRefrigerant implements InBombaRefrigerant, Serializable{
     public void revisa (PaginaIncidencies p){
         if(variableUniforme.seguentValor() < 20){
             desactiva();
-            foraDeServei = true;
-            p.afegeixIncidencia("Bomba refrigerant. ID: " + getId() + ", Activada: " + getActivat() + ", En servei: " + getForaDeServei());
+            setForaDeServeiTrue();
+            p.afegeixIncidencia("Bomba refrigerant. ID: " + getId() + ", Activada: " + getActivat() + ", Fora de servei: " + getForaDeServei());
         }
     }
     
