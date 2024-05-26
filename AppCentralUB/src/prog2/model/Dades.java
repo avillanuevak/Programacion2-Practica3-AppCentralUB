@@ -171,19 +171,11 @@ public class Dades implements InDades, Serializable{
         turbina.revisa(paginaIncidencies);   
         
         /*Establir nova temperatura del reactor*/
-        float novaTemp;
-        /* if(reactor.getTemperaturaReactor() - 250 * sistemaRefrigeracio.bombesActives() < 30f) novaTemp = 30f;
-        else{
-            novaTemp = reactor.getTemperaturaReactor() - 250 * sistemaRefrigeracio.bombesActives();
-            reactor.setTemperaturaReactor(novaTemp);
-        }
-        */
-        
-        //cÓDIGO YAYUN
+
         if(sistemaRefrigeracio.bombesActives()== 0){
             reactor.setTemperaturaReactor(reactor.calculaOutput(insercioBarres));
         }else{
-            novaTemp = reactor.calculaOutput(insercioBarres) - 250 * sistemaRefrigeracio.bombesActives();
+            float novaTemp = reactor.calculaOutput(insercioBarres) - 250 * sistemaRefrigeracio.bombesActives();
             reactor.setTemperaturaReactor(novaTemp < 30 ? 30f : novaTemp);
         }
     }
