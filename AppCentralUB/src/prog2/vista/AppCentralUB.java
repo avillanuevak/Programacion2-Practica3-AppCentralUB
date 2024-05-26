@@ -33,11 +33,29 @@ public class AppCentralUB extends javax.swing.JFrame {
     private boolean copiaReactor;
     private boolean bomba1, bomba2, bomba3, bomba4;
     
-    
+    /**
+     *
+     */
     public final static float DEMANDA_MAX = 1600;
+
+    /**
+     *
+     */
     public final static float DEMANDA_MIN = 200;
+
+    /**
+     *
+     */
     public final static float VAR_NORM_MEAN = 1000;
+
+    /**
+     *
+     */
     public final static float VAR_NORM_STD = 600;
+
+    /**
+     *
+     */
     public final static long VAR_NORM_SEED = 123;
     
     
