@@ -19,7 +19,15 @@ public class Reactor implements InComponent, Serializable{
     private float temperaturaReactor = 30f ;
     private boolean activat;
     private float insercioBarres;
-    
+    private boolean foraDeServei;
+
+    public boolean isForaDeServei() {
+        return foraDeServei;
+    }
+
+    public void setForaDeServei(boolean foraDeServei) {
+        this.foraDeServei = foraDeServei;
+    }
     /**
      *
      */
@@ -85,6 +93,9 @@ public class Reactor implements InComponent, Serializable{
         if(getTemperaturaReactor() > 1000f){
             throw new CentralUBException("Error: No es pot activar el reactor mentre tingui una temperatura superior a 1000 graus.");        
         }
+        else if(isForaDeServei()){
+            throw new CentralUBException("El reactor està fora de servei");
+        }
         else{
             setActivat(true);
         }
@@ -106,6 +117,7 @@ public class Reactor implements InComponent, Serializable{
     public void revisa (PaginaIncidencies p){
         if(this.getTemperaturaReactor() > 1000f){
             this.desactiva();
+            this.setForaDeServei(true);
             p.afegeixIncidencia("Reactor: Activat = " + isActivat() + ", Temperatura: " + getTemperaturaReactor() + ", Insercio Barres = " + 
                     getInsercioBarres());
         }

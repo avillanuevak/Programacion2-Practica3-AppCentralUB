@@ -120,6 +120,10 @@ public class Adaptador implements Serializable{
         dades.desactivaReactor();
     }
     
+    public boolean reactorForadeServei() throws CentralUBException{
+        return dades.mostraReactor().isForaDeServei();
+    }
+    
     /**
      *
      * @return
