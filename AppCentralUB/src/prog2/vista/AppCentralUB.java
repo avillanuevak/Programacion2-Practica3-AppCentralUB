@@ -669,11 +669,12 @@ public class AppCentralUB extends javax.swing.JFrame {
         try {
              /* Desactivar el reactor */
             adaptador.activarReactor();
+            txtfieldReactorActivat.setText("Activat");
+
         } catch (CentralUBException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
             /* Mostrar Activat en el lablel*/
-            txtfieldReactorActivat.setText("Activat");
     }//GEN-LAST:event_btnActivarReactorActionPerformed
 
     private void btnDesactivarReactorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesactivarReactorActionPerformed
@@ -702,6 +703,9 @@ public class AppCentralUB extends javax.swing.JFrame {
             FrmGestioComponentsCentral.setVisible(true);
             FrmGestioComponentsCentral.setSize(800, 600);
             llistaForadeServei();
+            if(adaptador.reactorForadeServei()){
+                txtfieldReactorActivat.setText("Desactivat");
+            }
             copiaBarrasControl = adaptador.getBarres();
             copiaReactor = adaptador.isReactorActivat();
             bomba1 = adaptador.isBombaActivat(0);
