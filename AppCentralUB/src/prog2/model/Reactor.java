@@ -133,6 +133,7 @@ public class Reactor implements InComponent, Serializable{
      */
     @Override
     public float calculaOutput(float input){
+        
         if(0f > input || 100f < input) try {
             throw new CentralUBException("Error: El grau d'insercio de barres ha de ser un percentatge entre 0 i 100.");
         } catch (CentralUBException ex) {
@@ -146,7 +147,7 @@ public class Reactor implements InComponent, Serializable{
         this.setTemperaturaReactor(output);
         return output;
     }
-
+    
     /**
      *
      * @return

@@ -121,6 +121,7 @@ public class AppCentralUB extends javax.swing.JFrame {
         btnCarregarFitxer = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtCarregarFitxer = new javax.swing.JTextField();
+        btnSortir = new javax.swing.JButton();
         btnVisualitzarInformacioCentral = new javax.swing.JButton();
         btnFinalitzarDia = new javax.swing.JButton();
         btnGuardarDades = new javax.swing.JButton();
@@ -291,6 +292,12 @@ public class AppCentralUB extends javax.swing.JFrame {
 
         jLabel3.setText("Inserció Barres de control");
 
+        listForaDeServei.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "hola", "aa" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        listForaDeServei.setToolTipText("");
         jScrollPane5.setViewportView(listForaDeServei);
 
         txtIntroduirInsercioBarresControl.addActionListener(new java.awt.event.ActionListener() {
@@ -431,6 +438,19 @@ public class AppCentralUB extends javax.swing.JFrame {
 
         jLabel6.setText("Selecciona fitxer: ");
 
+        txtCarregarFitxer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCarregarFitxerActionPerformed(evt);
+            }
+        });
+
+        btnSortir.setText("Sortir");
+        btnSortir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSortirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout FrmCarregaDadesLayout = new javax.swing.GroupLayout(FrmCarregaDades.getContentPane());
         FrmCarregaDades.getContentPane().setLayout(FrmCarregaDadesLayout);
         FrmCarregaDadesLayout.setHorizontalGroup(
@@ -441,7 +461,9 @@ public class AppCentralUB extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
                     .addComponent(txtCarregarFitxer))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCarregarFitxer, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(FrmCarregaDadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSortir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCarregarFitxer, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         FrmCarregaDadesLayout.setVerticalGroup(
@@ -453,7 +475,9 @@ public class AppCentralUB extends javax.swing.JFrame {
                 .addGroup(FrmCarregaDadesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCarregarFitxer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCarregarFitxer))
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSortir)
+                .addContainerGap(193, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -775,6 +799,13 @@ public class AppCentralUB extends javax.swing.JFrame {
         if (resultat == JFileChooser.APPROVE_OPTION) {
            fitxer=seleccio.getSelectedFile();
            txtCarregarFitxer.setText(fitxer.toString());
+                    try {
+                        adaptador.carregaDades(fitxer.toString());
+                        JOptionPane.showMessageDialog(null, "Dades carregades");
+                    } catch (CentralUBException ex) {
+                        JOptionPane.showMessageDialog(null, ex.getMessage());
+                    }
+                    
     }
     }//GEN-LAST:event_btnCarregarFitxerActionPerformed
 
@@ -797,13 +828,22 @@ public class AppCentralUB extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDesactivarBombaActionPerformed
 
     private void btnAplicarModificacionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarModificacionsActionPerformed
+        if(txtIntroduirInsercioBarresControl.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Introdueix valor a les barres de control");
+        }
         try {
             adaptador.insertarBarres(Float.valueOf(txtIntroduirInsercioBarresControl.getText()));
         } catch (CentralUBException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-        setVisible(true);
-        FrmGestioComponentsCentral.setVisible(false);
+        if(txtfieldReactorActivat.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Falta l'estat del reactor");
+        }
+        else{
+            setVisible(true);
+            FrmGestioComponentsCentral.setVisible(false);
+        }
+
     }//GEN-LAST:event_btnAplicarModificacionsActionPerformed
 
     private void FrmGuardarDadesComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_FrmGuardarDadesComponentHidden
@@ -814,6 +854,16 @@ public class AppCentralUB extends javax.swing.JFrame {
     private void FrmGestioComponentsCentralComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_FrmGestioComponentsCentralComponentHidden
         setVisible(true);
     }//GEN-LAST:event_FrmGestioComponentsCentralComponentHidden
+
+    private void txtCarregarFitxerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCarregarFitxerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCarregarFitxerActionPerformed
+
+    private void btnSortirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSortirActionPerformed
+        setVisible(true);
+        FrmCarregaDades.setVisible(false);
+        
+    }//GEN-LAST:event_btnSortirActionPerformed
         
     void llistaForadeServei(){
         DefaultListModel model = new DefaultListModel();
@@ -894,6 +944,7 @@ public class AppCentralUB extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardarDades;
     private javax.swing.JButton btnGuardarFitxer;
     private javax.swing.JButton btnIntroduirInsercioBarresControl;
+    private javax.swing.JButton btnSortir;
     private javax.swing.JButton btnVisualitzar;
     private javax.swing.JButton btnVisualitzarInformacioCentral;
     private javax.swing.JComboBox<String> cmboxBombesRefrigerants;
