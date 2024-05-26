@@ -824,16 +824,19 @@ public class AppCentralUB extends javax.swing.JFrame {
         if(txtIntroduirInsercioBarresControl.getText().isBlank()){
             JOptionPane.showMessageDialog(null, "Introdueix valor a les barres de control");
         }
-        if(txtfieldReactorActivat.getText().isBlank()){
-            JOptionPane.showMessageDialog(null, "Falta l'estat del reactor");
-        }
         try {
             adaptador.insertarBarres(Float.valueOf(txtIntroduirInsercioBarresControl.getText()));
         } catch (CentralUBException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-        setVisible(true);
-        FrmGestioComponentsCentral.setVisible(false);
+        if(txtfieldReactorActivat.getText().isBlank()){
+            JOptionPane.showMessageDialog(null, "Falta l'estat del reactor");
+        }
+        else{
+            setVisible(true);
+            FrmGestioComponentsCentral.setVisible(false);
+        }
+
     }//GEN-LAST:event_btnAplicarModificacionsActionPerformed
 
     private void FrmGuardarDadesComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_FrmGuardarDadesComponentHidden

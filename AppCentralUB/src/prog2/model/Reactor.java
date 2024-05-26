@@ -23,7 +23,9 @@ public class Reactor implements InComponent, Serializable{
     /**
      *
      */
-    public Reactor(){}
+    public Reactor(){
+        this.temperaturaReactor = 30;
+    }
 
     /**
      * Getters i setters de les variables de reactor
@@ -104,7 +106,7 @@ public class Reactor implements InComponent, Serializable{
      */
     @Override
     public void revisa (PaginaIncidencies p){
-        if(calculaOutput(insercioBarres) > 1000f){
+        if(temperaturaReactor > 1000f){
             this.desactiva();
             p.afegeixIncidencia("Reactor: Activat = " + isActivat() + ", Temperatura: " + getTemperaturaReactor() + ", Insercio Barres = " + 
                     getInsercioBarres());
@@ -133,6 +135,7 @@ public class Reactor implements InComponent, Serializable{
      */
     @Override
     public float calculaOutput(float input){
+        /*
         if(0f > input || 100f < input) try {
             throw new CentralUBException("Error: El grau d'insercio de barres ha de ser un percentatge entre 0 i 100.");
         } catch (CentralUBException ex) {
@@ -144,8 +147,11 @@ public class Reactor implements InComponent, Serializable{
             output = (getTemperaturaReactor() + (100 - input) * 10);
         }
         return output;
-    }
+        */
+        return (activat)? (temperaturaReactor +  ((100 - input) * 10)):temperaturaReactor;
 
+    }
+    
     /**
      *
      * @return
