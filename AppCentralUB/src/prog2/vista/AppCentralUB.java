@@ -501,6 +501,13 @@ public class AppCentralUB extends javax.swing.JFrame {
 
         label3.setText("Guanys acumulats: ");
 
+        txtDia.setEditable(false);
+
+        txtDemandaPotencia.setEditable(false);
+
+        txtGuanysAcumulats.setEditable(false);
+
+        txtFinalitzarDia.setEditable(false);
         txtFinalitzarDia.setColumns(20);
         txtFinalitzarDia.setRows(5);
         jScrollPane1.setViewportView(txtFinalitzarDia);

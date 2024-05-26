@@ -16,7 +16,7 @@ import prog2.vista.CentralUBException;
  */
 public class Reactor implements InComponent, Serializable{
     
-    private float temperaturaReactor;
+    private float temperaturaReactor = 30f ;
     private boolean activat;
     private float insercioBarres;
     
@@ -104,7 +104,7 @@ public class Reactor implements InComponent, Serializable{
      */
     @Override
     public void revisa (PaginaIncidencies p){
-        if(calculaOutput(insercioBarres) > 1000f){
+        if(this.getTemperaturaReactor() > 1000f){
             this.desactiva();
             p.afegeixIncidencia("Reactor: Activat = " + isActivat() + ", Temperatura: " + getTemperaturaReactor() + ", Insercio Barres = " + 
                     getInsercioBarres());
@@ -143,6 +143,7 @@ public class Reactor implements InComponent, Serializable{
         else{
             output = (getTemperaturaReactor() + (100 - input) * 10);
         }
+        this.setTemperaturaReactor(output);
         return output;
     }
 
